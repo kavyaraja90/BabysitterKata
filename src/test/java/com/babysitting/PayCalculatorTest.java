@@ -10,13 +10,28 @@ public class PayCalculatorTest {
 	public void babysitterGetsPaidCorrectAmountForHoursFromStartTimeToBedTime() {
 		int startTime = 18;
 		int bedTime = 21;
-		int endTime = 23;
+		int endTime = 21;
 		
 		int expectedPayment = 3*Pay.START_TIME_TO_BED_TIME.rate;
 		
-	    BabysittingJob job = new BabysittingJob(18, 23, 21);
+	    BabysittingJob job = new BabysittingJob(startTime, endTime, bedTime);
 	    
 	    assertEquals(expectedPayment, job.getPayment());	
 	}
+	
+	@Test
+	public void babysitterGetsPaidCorrectAmountForHoursFromBedTimeToMidnight() {
+		int startTime = 21;
+		int bedTime = 21;
+		int endTime = 23;
+		
+		int expectedPayment = 2*Pay.BED_TIME_TO_MIDNIGHT.rate;
+		
+		BabysittingJob job = new BabysittingJob(startTime, endTime, bedTime);
+		 
+	    assertEquals(expectedPayment, job.getPayment());	
+	}
+	
+	
 
 }

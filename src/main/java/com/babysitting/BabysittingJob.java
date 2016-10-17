@@ -52,4 +52,8 @@ public class BabysittingJob {
 	public Object getBedtime() {
 		return bedTime;
 	}
+	
+	public int getPayment() {
+        return PayCalculator.calculatePaymentForJob(startTime, endTime, bedTime);
+    }
 }
