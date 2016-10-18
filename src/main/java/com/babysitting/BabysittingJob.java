@@ -36,9 +36,7 @@ public class BabysittingJob {
 			throw new NotAvailableException(START_TIME_UNAVAILABLE_MESSAGE);
 		} else if (endTime < EARLIEST_START_TIME && endTime > LATEST_END_TIME) {
 			throw new NotAvailableException(END_TIME_INVALID_MESSAGE);
-		} else if (bedTime < startTime || bedTime > endTime) {
-			throw new NotAvailableException(BEDTIME_INVALID_MESSAGE);		
-		}
+		} 
 	}
 	
 	public int getStartTime() {
